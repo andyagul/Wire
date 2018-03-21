@@ -53,7 +53,7 @@ struct Model {
     }
     
     var isSave:Bool {
-        if (self.voltageDrop / electricityInfoDic[electricityInfo]!.voltage * 100) <= 3{
+        if (self.voltageDrop / electricityInfoDic[electricityInfo]!.voltage * 100) <= 5{
             return true
         }else{
             return false
