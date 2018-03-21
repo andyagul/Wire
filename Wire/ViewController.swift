@@ -9,17 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+    var maxChargingCurrent:Double = 16
+    var distance:Double = 25
+    var wireArea:String = "1.5mm²"
+    var electricityInfo:String = "singlePhase"
+    
+    lazy var model = Model(electricityInfo: self.electricityInfo, wireArea: self.wireArea, distance: self.distance, maxChargingCurrent: self.maxChargingCurrent)
+    
+    @IBAction func testButton(_ sender: UIButton) {
+        print(model.voltageDrop)
+        print(model.isSave)
+        print(model.dropPercentage)
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    
 }
 
