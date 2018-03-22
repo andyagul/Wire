@@ -9,9 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    let offset:CGFloat = -100
+ 
     let animationDuration:TimeInterval = 0.4
+    let offSet:CGFloat = -140
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -20,11 +20,22 @@ class ViewController: UIViewController {
             object: nil,
             queue: OperationQueue.main,
             using: { notification in
-                self.view.frame = CGRect(x: 0, y: self.offset, width: self.view.frame.width, height: self.view.frame.height)
+                self.view.frame = CGRect(x: 0, y: self.offSet , width: self.view.frame.width, height: self.view.frame.height)
         })
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        for textField in textFieldColletion{
+            textField.keyboardType = .decimalPad
+        }
+    }
+    
+ 
+    
     private var textFieldObserver:NSObjectProtocol?
+    
+    
     
     var maxChargingCurrent:Double = 16
     var distance:Double = 25
@@ -33,6 +44,8 @@ class ViewController: UIViewController {
     
     lazy var model = Model(electricityInfo: self.electricityInfo, wireArea: self.wireArea, distance: self.distance, maxChargingCurrent: self.maxChargingCurrent)
 
+    @IBOutlet var textFieldColletion: [TextField]!
+    
     @IBOutlet weak var distanceTextField: TextField!
     
     @IBAction func testButton(_ sender: UIButton) {
