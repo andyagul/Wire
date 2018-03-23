@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
  
-    let animationDuration:TimeInterval = 0.4
-    let offSet:CGFloat = -140
+    let animationDuration:TimeInterval = 0.3
+    let offSet:CGFloat = -170
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -52,6 +52,11 @@ class ViewController: UIViewController {
         print(model.voltageDrop)
         print(model.isSave)
         print(model.dropPercentage)
+        UIView.animate(withDuration: animationDuration) {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        }
+        self.view.endEditing(true)
+
         
     }
     

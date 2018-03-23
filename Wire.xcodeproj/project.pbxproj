@@ -39,6 +39,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		833F47E82064052D00FE10DC /* Suppoting Files */ = {
+			isa = PBXGroup;
+			children = (
+				833FEE0520612BD4008D8DFD /* AppDelegate.swift */,
+				833FEE0C20612BD4008D8DFD /* Assets.xcassets */,
+				833FEE0E20612BD4008D8DFD /* LaunchScreen.storyboard */,
+			);
+			path = "Suppoting Files";
+			sourceTree = "<group>";
+		};
 		833FEDF920612BD4008D8DFD = {
 			isa = PBXGroup;
 			children = (
@@ -59,12 +69,10 @@
 			isa = PBXGroup;
 			children = (
 				833F47E52063A06E00FE10DC /* TextField.swift */,
-				833FEE0520612BD4008D8DFD /* AppDelegate.swift */,
 				833FEE0720612BD4008D8DFD /* ViewController.swift */,
 				833FEE0920612BD4008D8DFD /* Main.storyboard */,
 				833FEE1720612C20008D8DFD /* Model.swift */,
-				833FEE0C20612BD4008D8DFD /* Assets.xcassets */,
-				833FEE0E20612BD4008D8DFD /* LaunchScreen.storyboard */,
+				833F47E82064052D00FE10DC /* Suppoting Files */,
 				833FEE1120612BD4008D8DFD /* Info.plist */,
 			);
 			path = Wire;
