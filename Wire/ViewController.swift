@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let animationDuration:TimeInterval = 0.25
+    let animatiingDuration:TimeInterval = 0.25
     let offSet:CGFloat = -170.00
     let textFieldCornerRadius:CGFloat = 3.00
     
@@ -52,10 +52,10 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        UIView.animate(withDuration: animationDuration) {
+        UIView.animate(withDuration: animatiingDuration) {
             self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            self.view.endEditing(true)
         }
-        self.view.endEditing(true)
     }
     
     lazy var model = Model(electricityInfo: self.electricityInfo!, wireArea: self.wireArea!, distance: self.distance!, maxChargingCurrent: self.maxChargingCurrent!, resistivity: self.resistivity!, powerFactor: self.powerFactor!)
@@ -71,6 +71,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var maxCurrentTextField: TextField!
     @IBOutlet weak var electricityInfoSegment: UISegmentedControl!
     @IBOutlet weak var wireAreaSegment: UISegmentedControl!
+    @IBOutlet weak var resultLable: UILabel!
     
     var maxChargingCurrent:Double?
     var distance:Double?
@@ -78,6 +79,8 @@ class ViewController: UIViewController {
     var electricityInfo:String?
     var powerFactor:Double?
     var resistivity:Double?
+    var dropVoltage:Double?
+    var result:Bool?
     
     
 
@@ -87,6 +90,13 @@ class ViewController: UIViewController {
     
     @IBAction func calculateButton(_ sender: UIButton) {
        
+        UIView.animate(withDuration: animatiingDuration) {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            self.view.endEditing(true)
+
+
+        }
+        
         for textField in textFieldCollection{
             textField.layer.borderColor = defaultTextFieldBorderColor
             textField.layer.borderWidth = defaultTextFieldBorderWidth!
@@ -94,30 +104,38 @@ class ViewController: UIViewController {
         }
         
         
-        UIView.animate(withDuration: animationDuration) {
-            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        }
-        self.view.endEditing(true)
+        let asyncTime = DispatchTime.now() + animatiingDuration
+        
         guard self.isValidNumber(textField: distanceTextField) else {
-            showAlter(textField: distanceTextField)
+            DispatchQueue.main.asyncAfter(deadline: asyncTime){
+                self.showAlter(textField: self.distanceTextField)
+            }
             return
         }
+        
         guard self.isValidNumber(textField: maxCurrentTextField) else{
-            showAlter(textField: maxCurrentTextField)
+            DispatchQueue.main.asyncAfter(deadline: asyncTime,
+                                          execute:{ self.showAlter(textField: self.maxCurrentTextField) })
             return
         }
-        guard self.isValidNumber(textField: resistivityTextField) else{
-            showAlter(textField: resistivityTextField)
-            return
-        }
+        
         guard self.isValidNumber(textField: powerFactorTextField) else{
-            showAlter(textField: powerFactorTextField)
+            DispatchQueue.main.asyncAfter(deadline: asyncTime,
+                                          execute: { self.showAlter(textField: self.powerFactorTextField)})
             return
         }
         
         powerFactor = Double(powerFactorTextField.text!)!
         guard powerFactor! > 0 && powerFactor! <= 1 else{
-            showAlter(textField: powerFactorTextField)
+            DispatchQueue.main.asyncAfter(deadline: asyncTime,
+                                          execute: { self.showAlter(textField: self.powerFactorTextField)
+            })
+            return
+        }
+        
+        guard self.isValidNumber(textField: resistivityTextField) else{
+            DispatchQueue.main.asyncAfter(deadline: asyncTime,
+                                          execute: { self.showAlter(textField: self.resistivityTextField) })
             return
         }
         
@@ -129,15 +147,13 @@ class ViewController: UIViewController {
         electricityInfo = electricityInfoSegment.selectedSegmentIndex == 0 ? "singlePhase" : "threePhase"
         
         
-        let volDrop = model.voltageDrop(electricityInfo: electricityInfo!, wireArea: wireArea!, distance: distance!, maxChargingCurrent: maxChargingCurrent!, resistivity: resistivity!, powerFactor: powerFactor!)
+        dropVoltage = model.voltageDrop(electricityInfo: electricityInfo!, wireArea: wireArea!, distance: distance!, maxChargingCurrent: maxChargingCurrent!, resistivity: resistivity!, powerFactor: powerFactor!)
+        voltageDropLabel.text = String(format:"%.2f", dropVoltage! )
         
-        voltageDropLabel.text = String(format:"%.2f", volDrop )
-        
-        
+        result = model.isSave(dropVoltage: dropVoltage!)
+        resultLable.text = result! ? "合格" : "不合格"
+
     }
-    
-    
-    
     
     
     private func isValidNumber(textField:TextField)->Bool{

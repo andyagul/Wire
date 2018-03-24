@@ -242,6 +242,7 @@
                         <outlet property="maxCurrentTextField" destination="eA6-Ve-ICX" id="1lv-6J-6h0"/>
                         <outlet property="powerFactorTextField" destination="1xH-1l-zWe" id="4q2-pr-eId"/>
                         <outlet property="resistivityTextField" destination="Yhp-s5-kik" id="1zk-Qh-L3A"/>
+                        <outlet property="resultLable" destination="KXN-tr-Td6" id="v3U-6c-1Qf"/>
                         <outlet property="voltageDropLabel" destination="A8L-jG-JS5" id="EPW-oz-3FK"/>
                         <outlet property="wireAreaSegment" destination="JbN-0U-V5m" id="4aH-B2-kus"/>
                         <outletCollection property="textFieldCollection" destination="aOO-nX-Pi9" collectionClass="NSMutableArray" id="0gH-RS-1j9"/>

@@ -45,7 +45,7 @@ struct Model {
     }
     
     mutating func isSave(dropVoltage:Double)->Bool{
-        return dropVoltage / electricityInfoDic[electricityInfo]!.voltage * 100 <= 5 ? true : false
+        return (dropVoltage / electricityInfoDic[electricityInfo]!.voltage * 100 <= 5) ? true : false
     }
     
 
