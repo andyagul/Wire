@@ -9,13 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
- 
+    
     let animationDuration:TimeInterval = 0.25
-    let offSet:CGFloat = -170
+    let offSet:CGFloat = -170.00
+    let textFieldCornerRadius:CGFloat = 3.00
+    
+    var defaultTextFieldCornerRadius:CGFloat?
+    var defaultTextFieldBorderWidth:CGFloat?
+    var defaultTextFieldBorderColor:CGColor?
     
     
     private var textFieldObserver:NSObjectProtocol?
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         textFieldObserver = NotificationCenter.default.addObserver(
@@ -34,6 +39,12 @@ class ViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        defaultTextFieldBorderColor = distanceTextField.layer.borderColor
+        defaultTextFieldBorderWidth = distanceTextField.layer.borderWidth
+        defaultTextFieldCornerRadius = distanceTextField.layer.cornerRadius
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         if let observer = self.textFieldObserver{
             NotificationCenter.default.removeObserver(observer)
@@ -47,8 +58,8 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-  lazy var model = Model(electricityInfo: self.electricityInfo!, wireArea: self.wireArea!, distance: self.distance!, maxChargingCurrent: self.maxChargingCurrent!, resistivity: self.resistivity!, powerFactor: self.powerFactor!)
-
+    lazy var model = Model(electricityInfo: self.electricityInfo!, wireArea: self.wireArea!, distance: self.distance!, maxChargingCurrent: self.maxChargingCurrent!, resistivity: self.resistivity!, powerFactor: self.powerFactor!)
+    
     
     
     @IBOutlet weak var voltageDropLabel: UILabel!
@@ -69,27 +80,44 @@ class ViewController: UIViewController {
     var resistivity:Double?
     
     
+
+   
+    
+    
+    
     @IBAction func calculateButton(_ sender: UIButton) {
+       
+        for textField in textFieldCollection{
+            textField.layer.borderColor = defaultTextFieldBorderColor
+            textField.layer.borderWidth = defaultTextFieldBorderWidth!
+            textField.layer.cornerRadius = defaultTextFieldCornerRadius!
+        }
+        
+        
+        UIView.animate(withDuration: animationDuration) {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        }
+        self.view.endEditing(true)
         guard self.isValidNumber(textField: distanceTextField) else {
-            showAlter(textFiled: distanceTextField)
+            showAlter(textField: distanceTextField)
             return
         }
         guard self.isValidNumber(textField: maxCurrentTextField) else{
-            showAlter(textFiled: maxCurrentTextField)
+            showAlter(textField: maxCurrentTextField)
             return
         }
         guard self.isValidNumber(textField: resistivityTextField) else{
-            showAlter(textFiled: resistivityTextField)
+            showAlter(textField: resistivityTextField)
             return
         }
         guard self.isValidNumber(textField: powerFactorTextField) else{
-            showAlter(textFiled: powerFactorTextField)
+            showAlter(textField: powerFactorTextField)
             return
         }
         
         powerFactor = Double(powerFactorTextField.text!)!
         guard powerFactor! > 0 && powerFactor! <= 1 else{
-            //showAlter(textFiled: <#T##TextField#>)
+            showAlter(textField: powerFactorTextField)
             return
         }
         
@@ -106,17 +134,10 @@ class ViewController: UIViewController {
         voltageDropLabel.text = String(format:"%.2f", volDrop )
         
         
-
-        UIView.animate(withDuration: animationDuration) {
-            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        }
-        self.view.endEditing(true)
-
-        
     }
     
     
-   
+    
     
     
     private func isValidNumber(textField:TextField)->Bool{
@@ -131,13 +152,27 @@ class ViewController: UIViewController {
         return true
     }
     
-    func showAlter(textFiled:TextField){
-        //
+    func showAlter(textField:TextField){
+        let alert = UIAlertController(title: "无效参数",
+                                      message: textField.text,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: .cancel,
+                                      handler:{ _ in
+                                        textField.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+                                        textField.layer.borderWidth = 1.0
+                                        textField.layer.cornerRadius = self.textFieldCornerRadius
+        
+        }))
+        present(alert, animated: true, completion: nil)
+        
     }
     
     
-   
     
- 
+    
+    
+    
+    
 }
 
