@@ -88,6 +88,11 @@ class ViewController: UIViewController {
         }
         
         powerFactor = Double(powerFactorTextField.text!)!
+        guard powerFactor! > 0 && powerFactor! <= 1 else{
+            //showAlter(textFiled: <#T##TextField#>)
+            return
+        }
+        
         resistivity = Double(resistivityTextField.text!)!
         maxChargingCurrent = Double(maxCurrentTextField.text!)!
         distance = Double(distanceTextField.text!)!
@@ -96,9 +101,12 @@ class ViewController: UIViewController {
         electricityInfo = electricityInfoSegment.selectedSegmentIndex == 0 ? "singlePhase" : "threePhase"
         
         
-        voltageDropLabel.text = String(model.voltageDrop(electricityInfo: electricityInfo!, wireArea: wireArea!, distance: distance!, maxChargingCurrent: maxChargingCurrent!, resistivity: resistivity!, powerFactor: powerFactor!))
+        let volDrop = model.voltageDrop(electricityInfo: electricityInfo!, wireArea: wireArea!, distance: distance!, maxChargingCurrent: maxChargingCurrent!, resistivity: resistivity!, powerFactor: powerFactor!)
         
-        //voltageDropLabel.text = String(model.voltage)
+        voltageDropLabel.text = String(format:"%.2f", volDrop )
+        
+        
+
         UIView.animate(withDuration: animationDuration) {
             self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         }
@@ -108,6 +116,9 @@ class ViewController: UIViewController {
     }
     
     
+   
+    
+    
     private func isValidNumber(textField:TextField)->Bool{
         guard let text = textField.text else {
             return false
@@ -115,6 +126,8 @@ class ViewController: UIViewController {
         guard let _ = Double(text) else {
             return false
         }
+        
+        
         return true
     }
     

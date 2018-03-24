@@ -10,6 +10,7 @@ import Foundation
 
 struct Model {
     
+    // MARK: Init Func
     init(electricityInfo:String, wireArea:Double, distance:Double, maxChargingCurrent:Double, resistivity:Double, powerFactor:Double ) {
         self.electricityInfo = electricityInfo
         self.wireArea = wireArea
@@ -19,10 +20,13 @@ struct Model {
         self.powerFactor = powerFactor
     }
     
+    // MARK: Lets
+    
     let CopperCoefficientOfResistance = 0.0225
     let electricityInfoDic:[String:(phase:Double, voltage:Double)] = ["singlePhase":(2, 220),
                                                                       "threePhase":(1, 380)]
-    
+    // MARK: Vars
+
     var maxChargingCurrent:Double
     var distance:Double
     var wireArea:Double
@@ -32,6 +36,7 @@ struct Model {
     var dropVoltage:Double?
     private var dropVoltagePercentage:String?
     
+    //MARK: Calculate func
     mutating func voltageDrop(electricityInfo:String, wireArea:Double, distance:Double, maxChargingCurrent:Double, resistivity:Double, powerFactor:Double )->Double{
          dropVoltage = electricityInfoDic[electricityInfo]!.phase *
             ( CopperCoefficientOfResistance * distance / wireArea * powerFactor +
