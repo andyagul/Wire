@@ -10,9 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
  
-    let animationDuration:TimeInterval = 0.3
+    let animationDuration:TimeInterval = 0.25
     let offSet:CGFloat = -170
     
+    
+    private var textFieldObserver:NSObjectProtocol?
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         textFieldObserver = NotificationCenter.default.addObserver(
@@ -26,32 +29,76 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        for textField in textFieldColletion{
+        for textField in textFieldCollection{
             textField.keyboardType = .decimalPad
         }
     }
     
- 
+    override func viewWillDisappear(_ animated: Bool) {
+        if let observer = self.textFieldObserver{
+            NotificationCenter.default.removeObserver(observer)
+        }
+    }
     
-    private var textFieldObserver:NSObjectProtocol?
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIView.animate(withDuration: animationDuration) {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        }
+        self.view.endEditing(true)
+    }
     
-    
-    
-    var maxChargingCurrent:Double = 16
-    var distance:Double = 25
-    var wireArea:String = "1.5mm²"
-    var electricityInfo:String = "singlePhase"
-    
-    lazy var model = Model(electricityInfo: self.electricityInfo, wireArea: self.wireArea, distance: self.distance, maxChargingCurrent: self.maxChargingCurrent)
+  lazy var model = Model(electricityInfo: self.electricityInfo!, wireArea: self.wireArea!, distance: self.distance!, maxChargingCurrent: self.maxChargingCurrent!, resistivity: self.resistivity!, powerFactor: self.powerFactor!)
 
-    @IBOutlet var textFieldColletion: [TextField]!
     
+    
+    @IBOutlet weak var voltageDropLabel: UILabel!
+    
+    @IBOutlet var textFieldCollection: [TextField]!
     @IBOutlet weak var distanceTextField: TextField!
+    @IBOutlet weak var powerFactorTextField: TextField!
+    @IBOutlet weak var resistivityTextField: TextField!
+    @IBOutlet weak var maxCurrentTextField: TextField!
+    @IBOutlet weak var electricityInfoSegment: UISegmentedControl!
+    @IBOutlet weak var wireAreaSegment: UISegmentedControl!
     
-    @IBAction func testButton(_ sender: UIButton) {
-        print(model.voltageDrop)
-        print(model.isSave)
-        print(model.dropPercentage)
+    var maxChargingCurrent:Double?
+    var distance:Double?
+    var wireArea:Double?
+    var electricityInfo:String?
+    var powerFactor:Double?
+    var resistivity:Double?
+    
+    
+    @IBAction func calculateButton(_ sender: UIButton) {
+        guard self.isValidNumber(textField: distanceTextField) else {
+            showAlter(textFiled: distanceTextField)
+            return
+        }
+        guard self.isValidNumber(textField: maxCurrentTextField) else{
+            showAlter(textFiled: maxCurrentTextField)
+            return
+        }
+        guard self.isValidNumber(textField: resistivityTextField) else{
+            showAlter(textFiled: resistivityTextField)
+            return
+        }
+        guard self.isValidNumber(textField: powerFactorTextField) else{
+            showAlter(textFiled: powerFactorTextField)
+            return
+        }
+        
+        powerFactor = Double(powerFactorTextField.text!)!
+        resistivity = Double(resistivityTextField.text!)!
+        maxChargingCurrent = Double(maxCurrentTextField.text!)!
+        distance = Double(distanceTextField.text!)!
+        
+        wireArea = Double(wireAreaSegment.titleForSegment(at: wireAreaSegment.selectedSegmentIndex)!)!
+        electricityInfo = electricityInfoSegment.selectedSegmentIndex == 0 ? "singlePhase" : "threePhase"
+        
+        
+        voltageDropLabel.text = String(model.voltageDrop(electricityInfo: electricityInfo!, wireArea: wireArea!, distance: distance!, maxChargingCurrent: maxChargingCurrent!, resistivity: resistivity!, powerFactor: powerFactor!))
+        
+        //voltageDropLabel.text = String(model.voltage)
         UIView.animate(withDuration: animationDuration) {
             self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         }
@@ -61,18 +108,23 @@ class ViewController: UIViewController {
     }
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        UIView.animate(withDuration: animationDuration) {
-              self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+    private func isValidNumber(textField:TextField)->Bool{
+        guard let text = textField.text else {
+            return false
         }
-      
-        self.view.endEditing(true)
+        guard let _ = Double(text) else {
+            return false
+        }
+        return true
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        if let observer = self.textFieldObserver{
-            NotificationCenter.default.removeObserver(observer)
-        }
+    func showAlter(textFiled:TextField){
+        //
     }
+    
+    
+   
+    
+ 
 }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,31 +15,31 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Wire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNV-6F-EDA">
-                                <rect key="frame" x="32" y="575" width="311" height="60"/>
+                                <rect key="frame" x="32" y="686" width="311" height="60"/>
                                 <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="TNX-tX-ejt"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="testButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5n-Ow-ELc"/>
+                                    <action selector="calculateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5n-Ow-ELc"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Fhq-dY-NJT">
-                                <rect key="frame" x="32" y="483" width="147.5" height="60"/>
+                                <rect key="frame" x="32" y="594" width="147.66666666666666" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="充电桩功率因素" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1H-hk-Q7H">
-                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="缺省值为0.8" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1xH-1l-zWe" customClass="TextField" customModule="Wire" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="30" width="131.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="131.66666666666666" height="30"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -51,7 +51,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="K6n-pl-NNv">
-                                <rect key="frame" x="211.5" y="483" width="147.5" height="60"/>
+                                <rect key="frame" x="211.66666666666663" y="594" width="147.33333333333337" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电阻率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3e-gh-TH2">
                                         <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
@@ -60,7 +60,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="缺省值为0.02" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yhp-s5-kik" customClass="TextField" customModule="Wire" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="30" width="131.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="131.33333333333334" height="30"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -72,16 +72,16 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="HPh-7a-8lt">
-                                <rect key="frame" x="32" y="409" width="147.5" height="60"/>
+                                <rect key="frame" x="32" y="520" width="147.66666666666666" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="走线长度（米）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68N-OV-lpD">
-                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="缺省值为0.8" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aOO-nX-Pi9" customClass="TextField" customModule="Wire" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="30" width="131.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="131.66666666666666" height="30"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -93,16 +93,16 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="dia-WH-Lok">
-                                <rect key="frame" x="211" y="409" width="147.5" height="60"/>
+                                <rect key="frame" x="211" y="520" width="147.66666666666663" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="额定电流（安）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2H-G6-g4J">
-                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="缺省值为0.02" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eA6-Ve-ICX" customClass="TextField" customModule="Wire" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="30" width="131.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="131.66666666666666" height="30"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -114,10 +114,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="a3o-gF-IMa">
-                                <rect key="frame" x="32" y="337" width="311" height="56"/>
+                                <rect key="frame" x="32" y="448" width="311" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电缆截面积（mm²）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vll-8J-Goa">
-                                        <rect key="frame" x="0.0" y="0.0" width="156.5" height="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="156.33333333333334" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -139,16 +139,16 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7gH-1y-l4O">
-                                <rect key="frame" x="32" y="293" width="311" height="28"/>
+                                <rect key="frame" x="32" y="404" width="311" height="28"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电源类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mo6-Pk-lYd">
-                                        <rect key="frame" x="0.0" y="4" width="69.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="4" width="69.333333333333329" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ccb-et-lPh">
-                                        <rect key="frame" x="85.5" y="0.0" width="225.5" height="29"/>
+                                        <rect key="frame" x="85.333333333333329" y="0.0" width="225.66666666666669" height="29"/>
                                         <segments>
                                             <segment title="单相 220V"/>
                                             <segment title="三相 380V"/>
@@ -157,19 +157,19 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="s5V-R1-ltE">
-                                <rect key="frame" x="32" y="177" width="311" height="84"/>
+                                <rect key="frame" x="32" y="288" width="311" height="84"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dJw-m7-HsK">
-                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="84"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="121.66666666666667" height="84"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电压降：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOZ-rq-fmt">
-                                                <rect key="frame" x="0.0" y="0.0" width="121.5" height="42"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="121.66666666666667" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.555%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8L-jG-JS5">
-                                                <rect key="frame" x="0.0" y="42" width="121.5" height="42"/>
+                                                <rect key="frame" x="0.0" y="42" width="121.66666666666667" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -238,10 +238,16 @@
                     </view>
                     <connections>
                         <outlet property="distanceTextField" destination="aOO-nX-Pi9" id="N1y-ZP-qp2"/>
-                        <outletCollection property="textFieldColletion" destination="aOO-nX-Pi9" collectionClass="NSMutableArray" id="n45-BS-08a"/>
-                        <outletCollection property="textFieldColletion" destination="eA6-Ve-ICX" collectionClass="NSMutableArray" id="GZI-yE-1JC"/>
-                        <outletCollection property="textFieldColletion" destination="1xH-1l-zWe" collectionClass="NSMutableArray" id="Bnk-JW-lN6"/>
-                        <outletCollection property="textFieldColletion" destination="Yhp-s5-kik" collectionClass="NSMutableArray" id="7tE-G1-yUa"/>
+                        <outlet property="electricityInfoSegment" destination="Ccb-et-lPh" id="I4X-4f-xgV"/>
+                        <outlet property="maxCurrentTextField" destination="eA6-Ve-ICX" id="1lv-6J-6h0"/>
+                        <outlet property="powerFactorTextField" destination="1xH-1l-zWe" id="4q2-pr-eId"/>
+                        <outlet property="resistivityTextField" destination="Yhp-s5-kik" id="1zk-Qh-L3A"/>
+                        <outlet property="voltageDropLabel" destination="A8L-jG-JS5" id="EPW-oz-3FK"/>
+                        <outlet property="wireAreaSegment" destination="JbN-0U-V5m" id="4aH-B2-kus"/>
+                        <outletCollection property="textFieldCollection" destination="aOO-nX-Pi9" collectionClass="NSMutableArray" id="0gH-RS-1j9"/>
+                        <outletCollection property="textFieldCollection" destination="eA6-Ve-ICX" collectionClass="NSMutableArray" id="9Ci-YH-kjf"/>
+                        <outletCollection property="textFieldCollection" destination="1xH-1l-zWe" collectionClass="NSMutableArray" id="rS9-yX-721"/>
+                        <outletCollection property="textFieldCollection" destination="Yhp-s5-kik" collectionClass="NSMutableArray" id="adl-ZT-OtQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
