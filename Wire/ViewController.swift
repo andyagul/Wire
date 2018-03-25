@@ -11,15 +11,19 @@ import UIKit
 class ViewController: UIViewController {
     
     let animatiingDuration:TimeInterval = 0.25
-    let offSet:CGFloat = -170.00
     let textFieldCornerRadius:CGFloat = 3.00
+    let moreOffSet:CGFloat = 30
     
     var defaultTextFieldCornerRadius:CGFloat?
     var defaultTextFieldBorderWidth:CGFloat?
     var defaultTextFieldBorderColor:CGColor?
+    var keyboardHeight:CGFloat?
+    
+    var editingTextFlied:TextField?
     
     
     private var textFieldObserver:NSObjectProtocol?
+    private var keyboardOberver:NSObjectProtocol?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -28,8 +32,37 @@ class ViewController: UIViewController {
             object: nil,
             queue: OperationQueue.main,
             using: { notification in
-                self.view.frame = CGRect(x: 0, y: self.offSet , width: self.view.frame.width, height: self.view.frame.height)
+               
+                
+                let userInfo = notification.userInfo as NSDictionary!
+                let aValue = userInfo?.object(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+                let keyboardRect = aValue.cgRectValue
+                self.keyboardHeight = keyboardRect.size.height
+          
+           
+                
+                for textField in self.textFieldCollection{
+                    if textField.isEditing{
+                        self.editingTextFlied = textField
+                    }
+                }
+                
+              
+                
+                //TODO: - offset
+                let  textFildRect = self.editingTextFlied?.superview?.convert((self.editingTextFlied?.frame)!, to: self.view)
+                let texfieldDicarOriginY = UIScreen.main.bounds.size.height -  (textFildRect?.origin.y)!
+                
+                let offSet:CGFloat = self.keyboardHeight! + (self.editingTextFlied?.frame.height)! < texfieldDicarOriginY ? 0 : 
+                    self.keyboardHeight! - texfieldDicarOriginY + (self.editingTextFlied?.frame.size.height)! + self.moreOffSet
+            
+                    self.view.frame = CGRect(x: 0, y: -offSet, width: self.view.frame.size.width, height: self.view.frame.size.height)
+       
         })
+        
+     
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,6 +73,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         defaultTextFieldBorderColor = distanceTextField.layer.borderColor
         defaultTextFieldBorderWidth = distanceTextField.layer.borderWidth
         defaultTextFieldCornerRadius = distanceTextField.layer.cornerRadius
