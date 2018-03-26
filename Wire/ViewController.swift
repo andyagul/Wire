@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     let animatiingDuration:TimeInterval = 0.25
     let textFieldCornerRadius:CGFloat = 3.00
     let moreOffSet:CGFloat = 30
+    let saftyColor = #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1)
+    let dangerColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
     
     var defaultTextFieldCornerRadius:CGFloat?
     var defaultTextFieldBorderWidth:CGFloat?
@@ -32,36 +34,23 @@ class ViewController: UIViewController {
             object: nil,
             queue: OperationQueue.main,
             using: { notification in
-               
-                
                 let userInfo = notification.userInfo as NSDictionary!
                 let aValue = userInfo?.object(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
                 let keyboardRect = aValue.cgRectValue
                 self.keyboardHeight = keyboardRect.size.height
-          
-           
                 
                 for textField in self.textFieldCollection{
                     if textField.isEditing{
                         self.editingTextFlied = textField
                     }
                 }
-                
-              
-                
-                //TODO: - offset
                 let  textFildRect = self.editingTextFlied?.superview?.convert((self.editingTextFlied?.frame)!, to: self.view)
                 let texfieldDicarOriginY = UIScreen.main.bounds.size.height -  (textFildRect?.origin.y)!
                 
                 let offSet:CGFloat = self.keyboardHeight! + (self.editingTextFlied?.frame.height)! < texfieldDicarOriginY ? 0 : 
                     self.keyboardHeight! - texfieldDicarOriginY + (self.editingTextFlied?.frame.size.height)! + self.moreOffSet
-            
-                    self.view.frame = CGRect(x: 0, y: -offSet, width: self.view.frame.size.width, height: self.view.frame.size.height)
-       
+                self.view.frame = CGRect(x: 0, y: -offSet, width: self.view.frame.size.width, height: self.view.frame.size.height)
         })
-        
-     
-        
         
     }
     
@@ -88,9 +77,10 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIView.animate(withDuration: animatiingDuration) {
             self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-            self.view.endEditing(true)
+                }
+        self.view.endEditing(true)
         }
-    }
+    
     
     lazy var model = Model(electricityInfo: self.electricityInfo!, wireArea: self.wireArea!, distance: self.distance!, maxChargingCurrent: self.maxChargingCurrent!, resistivity: self.resistivity!, powerFactor: self.powerFactor!)
     
@@ -98,6 +88,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var voltageDropLabel: UILabel!
     
+    @IBOutlet weak var dropVoltagePercentage: UILabel!
     @IBOutlet var textFieldCollection: [TextField]!
     @IBOutlet weak var distanceTextField: TextField!
     @IBOutlet weak var powerFactorTextField: TextField!
@@ -117,18 +108,41 @@ class ViewController: UIViewController {
     var result:Bool?
     
     
+    func areTextFieldsSetUp() -> Bool {
+        var textSet = Set<String>()
+        for textFiled in textFieldCollection{
+            if let text = textFiled.text{
+                textSet.insert(text)
+            }
+        }
+        return textSet.count == 4 ? true : false
+    }
+    
+    
+    @IBAction func electricityInfoSelectSegmentButton(_ sender: UISegmentedControl) {
+        if areTextFieldsSetUp() {
+            electricityInfo = electricityInfoSegment.selectedSegmentIndex == 0 ? "singlePhase" : "threePhase"
+            self.calculateButton(nil)
 
-   
+        }
+    }
     
     
+    @IBAction func wireAreaSelectSegmentButton(_ sender: UISegmentedControl) {
+        if areTextFieldsSetUp() {
+            wireArea = Double(wireAreaSegment.titleForSegment(at: wireAreaSegment.selectedSegmentIndex)!)!
+            self.calculateButton(nil)
+        }
+    }
     
-    @IBAction func calculateButton(_ sender: UIButton) {
-       
+    
+    @IBAction func calculateButton(_ sender: UIButton?) {
+        
         UIView.animate(withDuration: animatiingDuration) {
             self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             self.view.endEditing(true)
-
-
+            
+            
         }
         
         for textField in textFieldCollection{
@@ -184,9 +198,16 @@ class ViewController: UIViewController {
         dropVoltage = model.voltageDrop(electricityInfo: electricityInfo!, wireArea: wireArea!, distance: distance!, maxChargingCurrent: maxChargingCurrent!, resistivity: resistivity!, powerFactor: powerFactor!)
         voltageDropLabel.text = String(format:"%.2f", dropVoltage! )
         
-        result = model.isSave(dropVoltage: dropVoltage!)
-        resultLable.text = result! ? "合格" : "不合格"
-
+        
+        
+        let result = model.isSave(dropVoltage: dropVoltage!,
+                                  in: electricityInfo!)
+        resultLable.text = result.safty ? "合格" : "不合格"
+        resultLable.textColor = result.safty ? saftyColor : dangerColor
+        dropVoltagePercentage.text = result.dropPercent
+        dropVoltagePercentage.textColor = result.safty ? saftyColor : dangerColor
+        
+        
     }
     
     
@@ -212,7 +233,7 @@ class ViewController: UIViewController {
                                         textField.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
                                         textField.layer.borderWidth = 1.0
                                         textField.layer.cornerRadius = self.textFieldCornerRadius
-        
+                                        
         }))
         present(alert, animated: true, completion: nil)
         

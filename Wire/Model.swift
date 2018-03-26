@@ -34,7 +34,6 @@ struct Model {
     var powerFactor:Double
     var resistivity:Double
     var dropVoltage:Double?
-    private var dropVoltagePercentage:String?
     
     //MARK: Calculate func
     mutating func voltageDrop(electricityInfo:String, wireArea:Double, distance:Double, maxChargingCurrent:Double, resistivity:Double, powerFactor:Double )->Double{
@@ -44,11 +43,13 @@ struct Model {
         return dropVoltage!
     }
     
-    mutating func isSave(dropVoltage:Double)->Bool{
-        return (dropVoltage / electricityInfoDic[electricityInfo]!.voltage * 100 <= 5) ? true : false
+    mutating func isSave(dropVoltage:Double, in electricityInfo:String)->(safty:Bool, dropPercent:String){
+        let dropPercent = dropVoltage / electricityInfoDic[electricityInfo]!.voltage * 100
+        let dropPercentString = String(format: "%.2f",dropPercent)
+        return (dropPercent <= 5) ? (true, dropPercentString) : (false, dropPercentString)
     }
     
-
+    
     
     
 }
