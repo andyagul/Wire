@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -16,7 +12,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Wire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNV-6F-EDA">
@@ -239,7 +235,7 @@
                     </view>
                     <connections>
                         <outlet property="distanceTextField" destination="aOO-nX-Pi9" id="N1y-ZP-qp2"/>
-                        <outlet property="dropVoltagePercentage" destination="2WJ-KJ-pEE" id="vhD-P0-yu2"/>
+                        <outlet property="dropVoltagePercentageLabel" destination="2WJ-KJ-pEE" id="vhD-P0-yu2"/>
                         <outlet property="electricityInfoSegment" destination="Ccb-et-lPh" id="I4X-4f-xgV"/>
                         <outlet property="maxCurrentTextField" destination="eA6-Ve-ICX" id="1lv-6J-6h0"/>
                         <outlet property="powerFactorTextField" destination="1xH-1l-zWe" id="4q2-pr-eId"/>
