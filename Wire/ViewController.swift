@@ -230,7 +230,7 @@ class ViewController: UIViewController {
         dropVoltagePercentageLabel.text = inValidText
         dropVoltagePercentageLabel.textColor = dangerColor
         voltageDropLabel.text = inValidText
-        voltageDropLabel.textColor = dangerColor
+//        voltageDropLabel.textColor = dangerColor
         
         let alert = UIAlertController(title: "无效参数",
                                       message: textField.text,
