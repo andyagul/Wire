@@ -88,7 +88,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var voltageDropLabel: UILabel!
     
-    @IBOutlet weak var dropVoltagePercentage: UILabel!
+    @IBOutlet weak var dropVoltagePercentageLabel: UILabel!
     @IBOutlet var textFieldCollection: [TextField]!
     @IBOutlet weak var distanceTextField: TextField!
     @IBOutlet weak var powerFactorTextField: TextField!
@@ -204,8 +204,8 @@ class ViewController: UIViewController {
                                   in: electricityInfo!)
         resultLable.text = result.safty ? "合格" : "不合格"
         resultLable.textColor = result.safty ? saftyColor : dangerColor
-        dropVoltagePercentage.text = result.dropPercent
-        dropVoltagePercentage.textColor = result.safty ? saftyColor : dangerColor
+        dropVoltagePercentageLabel.text = result.dropPercent
+        dropVoltagePercentageLabel.textColor = result.safty ? saftyColor : dangerColor
         
         
     }
@@ -224,6 +224,14 @@ class ViewController: UIViewController {
     }
     
     func showAlter(textField:TextField){
+        let inValidText = "?"
+        resultLable.text = inValidText
+        resultLable.textColor = dangerColor
+        dropVoltagePercentageLabel.text = inValidText
+        dropVoltagePercentageLabel.textColor = dangerColor
+        voltageDropLabel.text = inValidText
+        voltageDropLabel.textColor = dangerColor
+        
         let alert = UIAlertController(title: "无效参数",
                                       message: textField.text,
                                       preferredStyle: .alert)
@@ -235,14 +243,10 @@ class ViewController: UIViewController {
                                         textField.layer.cornerRadius = self.textFieldCornerRadius
                                         
         }))
+        
         present(alert, animated: true, completion: nil)
         
     }
-    
-    
-    
-    
-    
     
     
 }
