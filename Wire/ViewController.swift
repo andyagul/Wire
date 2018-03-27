@@ -86,6 +86,15 @@ class ViewController: UIViewController {
     
     
     
+    @IBAction func swipDownGesture(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .down
+        {
+            self.view.endEditing(true)
+        }
+    
+    }
+    
+    
     @IBOutlet weak var voltageDropLabel: UILabel!
     
     @IBOutlet weak var dropVoltagePercentageLabel: UILabel!

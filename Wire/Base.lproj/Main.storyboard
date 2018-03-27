@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,11 +16,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Wire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="©2018 Weiru Chen. All Rights Reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucS-rL-QCX">
-                                <rect key="frame" x="0.0" y="548" width="320" height="20"/>
+                                <rect key="frame" x="0.0" y="758" width="375" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="dOZ-ys-cUr"/>
                                 </constraints>
@@ -29,19 +29,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lGk-YM-XbY">
-                                <rect key="frame" x="16" y="36" width="288" height="496"/>
+                                <rect key="frame" x="16" y="60" width="343" height="682"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="snQ-K7-Bm9">
-                                        <rect key="frame" x="108.5" y="0.0" width="71" height="92"/>
+                                        <rect key="frame" x="136.33333333333334" y="0.0" width="70.666666666666657" height="92"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="结果判定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9e-cB-hXr">
-                                                <rect key="frame" x="0.0" y="0.0" width="71" height="42"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70.666666666666671" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合格" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXN-tr-Td6">
-                                                <rect key="frame" x="0.0" y="50" width="71" height="42"/>
+                                                <rect key="frame" x="0.0" y="50" width="70.666666666666671" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 <color key="textColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -49,19 +49,19 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wXZ-jk-mfQ">
-                                        <rect key="frame" x="0.0" y="103.5" width="288" height="92"/>
+                                        <rect key="frame" x="0.0" y="134.33333333333334" width="343" height="92"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9FI-qv-e6d">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="92"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="92"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电压降(%)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0T-d1-A4O">
-                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="42"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="42"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WJ-KJ-pEE">
-                                                        <rect key="frame" x="0.0" y="50" width="140" height="42"/>
+                                                        <rect key="frame" x="0.0" y="50" width="167.66666666666666" height="42"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                         <color key="textColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -69,16 +69,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dJw-m7-HsK">
-                                                <rect key="frame" x="148" y="0.0" width="140" height="92"/>
+                                                <rect key="frame" x="175.66666666666663" y="0.0" width="167.33333333333337" height="92"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电压降(V)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOZ-rq-fmt">
-                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="42"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="167.33333333333334" height="42"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8L-jG-JS5">
-                                                        <rect key="frame" x="0.0" y="50" width="140" height="42"/>
+                                                        <rect key="frame" x="0.0" y="50" width="167.33333333333334" height="42"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -91,16 +91,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7gH-1y-l4O">
-                                        <rect key="frame" x="0.0" y="206.5" width="288" height="28"/>
+                                        <rect key="frame" x="0.0" y="268.66666666666669" width="343" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电源类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mo6-Pk-lYd">
-                                                <rect key="frame" x="0.0" y="4" width="69.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="4" width="69.333333333333329" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ccb-et-lPh">
-                                                <rect key="frame" x="85.5" y="0.0" width="202.5" height="29"/>
+                                                <rect key="frame" x="85.333333333333343" y="0.0" width="257.66666666666663" height="29"/>
                                                 <segments>
                                                     <segment title="单相 220V"/>
                                                     <segment title="三相 380V"/>
@@ -112,16 +112,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="a3o-gF-IMa">
-                                        <rect key="frame" x="0.0" y="246" width="288" height="56"/>
+                                        <rect key="frame" x="0.0" y="339" width="343" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电缆截面积（mm²）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vll-8J-Goa">
-                                                <rect key="frame" x="0.0" y="0.0" width="156.5" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="156.33333333333334" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JbN-0U-V5m">
-                                                <rect key="frame" x="0.0" y="28" width="288" height="29"/>
+                                                <rect key="frame" x="0.0" y="28" width="343" height="29"/>
                                                 <segments>
                                                     <segment title="1.5"/>
                                                     <segment title="2.5"/>
@@ -140,19 +140,19 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="FMe-bd-ckt">
-                                        <rect key="frame" x="0.0" y="313.5" width="288" height="60"/>
+                                        <rect key="frame" x="0.0" y="437.33333333333331" width="343" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="HPh-7a-8lt">
-                                                <rect key="frame" x="0.0" y="0.0" width="128" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="155.66666666666666" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="走线长度（米）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68N-OV-lpD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aOO-nX-Pi9" customClass="TextField" customModule="Wire" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="30" width="128" height="30"/>
+                                                        <rect key="frame" x="0.0" y="30.000000000000057" width="155.66666666666666" height="30"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -164,16 +164,16 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="dia-WH-Lok">
-                                                <rect key="frame" x="160" y="0.0" width="128" height="60"/>
+                                                <rect key="frame" x="187.66666666666663" y="0.0" width="155.33333333333337" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="额定电流（安）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2H-G6-g4J">
-                                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eA6-Ve-ICX" customClass="TextField" customModule="Wire" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="30" width="128" height="30"/>
+                                                        <rect key="frame" x="0.0" y="30.000000000000057" width="155.33333333333334" height="30"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -187,19 +187,19 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ybh-tG-okm">
-                                        <rect key="frame" x="0.0" y="384.5" width="288" height="60"/>
+                                        <rect key="frame" x="0.0" y="539.66666666666663" width="343" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Fhq-dY-NJT">
-                                                <rect key="frame" x="0.0" y="0.0" width="128" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="155.66666666666666" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="充电桩功率因素" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1H-hk-Q7H">
-                                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1xH-1l-zWe" customClass="TextField" customModule="Wire" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="30" width="128" height="30"/>
+                                                        <rect key="frame" x="0.0" y="30" width="155.66666666666666" height="30"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -211,7 +211,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="K6n-pl-NNv">
-                                                <rect key="frame" x="160" y="0.0" width="128" height="60"/>
+                                                <rect key="frame" x="187.66666666666663" y="0.0" width="155.33333333333337" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电阻率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3e-gh-TH2">
                                                         <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
@@ -220,7 +220,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yhp-s5-kik" customClass="TextField" customModule="Wire" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="30" width="128" height="30"/>
+                                                        <rect key="frame" x="0.0" y="30" width="155.33333333333334" height="30"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -234,7 +234,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNV-6F-EDA">
-                                        <rect key="frame" x="100" y="456" width="88" height="40"/>
+                                        <rect key="frame" x="100" y="642" width="143" height="40"/>
                                         <color key="backgroundColor" red="0.12019579857587814" green="0.55522924661636353" blue="0.0054100649431347847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="mHR-NJ-uce"/>
@@ -262,6 +262,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ucS-rL-QCX" secondAttribute="trailing" id="3BH-JT-hHY"/>
                             <constraint firstItem="lGk-YM-XbY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="M6q-3m-Zuz"/>
@@ -272,6 +273,9 @@
                             <constraint firstItem="lGk-YM-XbY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="vll-Rt-e6R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ai6-9D-cOy" appends="YES" id="HgY-Rc-nH1"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="distanceTextField" destination="aOO-nX-Pi9" id="N1y-ZP-qp2"/>
@@ -290,6 +294,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="ai6-9D-cOy">
+                    <connections>
+                        <action selector="swipDownGesture:" destination="BYZ-38-t0r" id="bJ5-Y0-IkK"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="135" y="123.59154929577466"/>
         </scene>
