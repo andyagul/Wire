@@ -205,17 +205,28 @@ class ViewController: UIViewController {
         
         
         dropVoltage = model.voltageDrop(electricityInfo: electricityInfo!, wireArea: wireArea!, distance: distance!, maxChargingCurrent: maxChargingCurrent!, resistivity: resistivity!, powerFactor: powerFactor!)
+        
+        UIView.animate(withDuration: animatiingDuration) {
+           self.voltageDropLabel.alpha = 0
+            self.resultLable.alpha = 0
+            self.dropVoltagePercentageLabel.alpha = 0
+        }
+        
+     
         voltageDropLabel.text = String(format:"%.2f", dropVoltage! )
-        
-        
-        
         let result = model.isSave(dropVoltage: dropVoltage!,
                                   in: electricityInfo!)
         resultLable.text = result.safty ? "合格" : "不合格"
         resultLable.textColor = result.safty ? saftyColor : dangerColor
         dropVoltagePercentageLabel.text = result.dropPercent
         dropVoltagePercentageLabel.textColor = result.safty ? saftyColor : dangerColor
-        
+      
+        UIView.animate(withDuration: animatiingDuration) {
+            self.voltageDropLabel.alpha = 1
+            self.resultLable.alpha = 1
+            self.dropVoltagePercentageLabel.alpha = 1
+            
+        }
         
     }
     

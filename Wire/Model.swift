@@ -40,7 +40,8 @@ struct Model {
          dropVoltage = electricityInfoDic[electricityInfo]!.phase *
             ( CopperCoefficientOfResistance * distance / wireArea * powerFactor +
                 resistivity * distance * sqrt(1 - powerFactor * powerFactor)) * maxChargingCurrent
-        return dropVoltage!
+        
+        return dropVoltage! >= electricityInfoDic[electricityInfo]!.voltage ? electricityInfoDic[electricityInfo]!.voltage : dropVoltage!
     }
     
     mutating func isSave(dropVoltage:Double, in electricityInfo:String)->(safty:Bool, dropPercent:String){
