@@ -34,7 +34,7 @@ class ViewController: UIViewController {
             object: nil,
             queue: OperationQueue.main,
             using: { notification in
-                let userInfo = notification.userInfo as NSDictionary!
+                let userInfo = notification.userInfo as NSDictionary?
                 let aValue = userInfo?.object(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
                 let keyboardRect = aValue.cgRectValue
                 self.keyboardHeight = keyboardRect.size.height
